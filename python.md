@@ -1,17 +1,11 @@
 # Python Notes
+My notes on [The Python Tutorial](https://docs.python.org/3.5/tutorial/)
 
-###  The Python Book
-#### Get started with Python
-* List: contains a collection of data in a specific order * Tuple: 
-Contains a collection of immutable data in a specific order * 
-Dictionary: Stores data in key-value pairs * Variables are dynamically 
-typed *
-
-### Python Docs 3 An Informal Introduction to Python
+### 3 An Informal Introduction to Python
 #### 3.1 Using Python as a Calculator
 ##### 3.1.1 Numbers
-* division always returns a floating point number * use `//` for floor 
-division * `**` for powers
+* division always returns a floating point number * use `//` for floor division
+* `**` for powers
 
 ##### 3.1.2 Strings
 
