@@ -412,3 +412,8 @@ try:
 * virtual environment is a self-contained directory tree that contains a Python installation for a particular version of Python plus a number of addtional packages
 
 #### 12.2 Creating Virtual Environments
+* `pyvenv <directory>` installs python virtual environment
+* then run, `source <directory>/bin/activate`
+* with a virtual env, you can manage packages with pip
+* use `pip freeze > requirements.txt` and `pip install -r requirements.txt`
+
