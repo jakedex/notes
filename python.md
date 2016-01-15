@@ -4,7 +4,8 @@ My notes on [The Python Tutorial](https://docs.python.org/3.5/tutorial/)
 ### 3 An Informal Introduction to Python
 #### 3.1 Using Python as a Calculator
 ##### 3.1.1 Numbers
-* division always returns a floating point number * use `//` for floor division
+* division always returns a floating point number
+* use `//` for floor division
 * `**` for powers
 
 ##### 3.1.2 Strings
