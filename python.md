@@ -56,9 +56,12 @@ while b<10:
 ```python
 if x < 0:
 	x = 0
-	print('negative to zero') elif x == 0:
-	print('zero') elif x == 1:
-	print('one') else:
+	print('negative to zero')
+elif x == 0:
+	print('zero')
+elif x == 1:
+	print('one')
+else:
 	print('more')
 ```
 
@@ -66,8 +69,9 @@ if x < 0:
 
 * e.g.
 ```python
- 	words = ['cat','dog','window'] for w in words:
-	print(w, len(w))
+ 	words = ['cat','dog','window']
+	for w in words:
+        	print(w, len(w))
 ```
 
 * if you need to use a traditional for loop, and iterate over a sequence 
