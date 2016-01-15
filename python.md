@@ -24,7 +24,8 @@ My notes on [The Python Tutorial](https://docs.python.org/3.5/tutorial/)
 * start included, end excluded
 	* out of range slice don't throw errors
 	* Strings are immutable 
-* `len()` returns length of string * are sequence type
+* `len()` returns length of string
+* are sequence type
 
 #### 3.1.3 Lists
 
