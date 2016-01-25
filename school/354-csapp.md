@@ -34,4 +34,28 @@ hello.c (Source program) => [Pre-processor (cpp)] => hello.i (Modified source pr
     * The os keeps track of the state (context) information the process needs to run
     * System calls pass control of the OS
     * Transitions from one process to another are managed by the kernel
-* Threads
+* Threads multiple execution units
+* Virtual memory is an abstraction that provides each process with the illusion that it has exclusive use of the main memory
+    * each process has same *virtual address space*, or uniform view of memory
+* Layers of addresses (starting at lowest):
+    * *Program code and data*: Code begins at the same fixed address for all processes, followed by data locations that correspond to global C variables
+    * *Heap*: Runtime heap, expands and contracts dynamically at run time as a result of calls to C std library routines
+    * *Shared Libraries*: middel of address space is the area that holds the code and data for shared libraries like the C standard library and the math library. 
+    * *Stack*: at the top of the user's virutal address space is the user stack that the compiler uses to implement function calls. Expands and contracts dynamically during the execution of the program with function calls and returns
+    * *Kernel virtual memory*: Very top region of the address space is reserved for the kernel 
+* A file is just a sequence of bytes - every I/O device is modeled as a file
+
+### Important Themes
+* *Amdahl's Law*: The observcation that when we speed up one parts of a system, the effect on the overall system performance depends on both how signifcant this part was and how much it sped up
+* *Concurrency* refers to the general concept of a system with multiple, simultaneous activies
+* *Paralellism* refers to the use of concurrency to make a system run faster
+* *Thread-Level Concurrency*: we can have multiple control flows executing w/in a single process
+    * Multiprocessors, specifically multi-core processors, each CPU core has its own L1 and L2 cache and register, with a shared L3 cache and main memory between all cores
+    * * Hyperthreading*: allows single CPU to execute multiple flows of control. It involves hhaving multiple copies of some of the CPU hardware, 
+* *Instruction-Level Parallelism*
+    * executing multiple instructions at one time
+    * Processors that can sustain execution rates faster than 1 inst/cycle are known as superscalar processors
+* *Single-Instruction, Multiple-Data Parallelism*
+    * allows a single instruction to cause multiple operations to be performed in parallel
+
+
