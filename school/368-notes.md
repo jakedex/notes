@@ -1,7 +1,7 @@
 # 368: C++ Notes
 
 ## Basic Terminology and C++ functions
-* Java has fields and methods, C++ data members 
+* Java has fields and methods, C++ data members and functions
 * *free functions* are functions that aren't inside any class
 * Every C++ program must include free function called main 
     * should return type int - error codes, so `0` to indicate normal termination, and any non-zero value to indicate the an error occurred
@@ -67,7 +67,7 @@ struct Student {
     * to access the location pointed to by a pointer p, use the `*` operator
         * `cout << *p;`
     * `==` compares the addresses stored in the pointers, not the values (use `*p == *q`)
-* Unlike Java, there's no garbage collection - this mneans if you allocate memory from the heap, that memory can't be reused unless you deallocate it explicitly (using `delete` operator)
+* Unlike Java, there's no garbage collection - this means if you allocate memory from the heap, that memory can't be reused unless you deallocate it explicitly (using `delete` operator)
 * In general, for every `new` use, need to have a corresponding `delete` statement
 * commonly used to point to a structure, e.g. if p points to structure with a field named f, it can be accessed with `(*p).f` or its shorthand `p->f`
 * also commonly used to point to dynamically allocated array of values: `int *p = new int [10];`
