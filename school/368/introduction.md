@@ -1,4 +1,4 @@
-# 368: C++ Notes
+# Introduction
 
 ## Basic Terminology and C++ functions
 * Java has fields and methods, C++ data members and functions
@@ -75,30 +75,3 @@ struct Student {
     * can then access each array element by incrementing the pointer, e.g. `*p = 5` same as `p[0] = 5`, and `p++` for `p[1]`
 * `typedef` to define a new type with the same range of values/operations as an existing type
     * e.g. `typedef double Dollars;`
-
-## C++ I/O
-
-### Standard input and output
-* write to stdout with `cout << x << y << endl;`, code evaluated from left to right
-* read in with `cin >> x;`
-* use `#include <iostream>`
-
-### File I/O
-* To read from a file, use variable of type `ifstream`, to write, `ofstream`
-```c
- #include <fstream>
-   
- ifstream inFile;
- inFile.open("input.dat");
- if (inFile.fail()) {
-    cerr << "unable to open file input.dat for reading" << endl;
-    exit(1);
- }
-```
-* `cerr` standard error
-* can use `while (inFile >> n) {...}`, or `inFile.get(c)`
-
-### I/O Parameters
-* `istream` and `ostream` can be used as params (w/o the worry of whether it's stdio or a file)
-* `void f( istream & input, ostream & output )` use `&` to pass by reference 
-
