@@ -10,12 +10,17 @@
 ## ROS - rviz issues
 * [Blocked on install](http://answers.ros.org/question/202319/blocked-on-the-install-tutorial-naoqi_driver-not-found/)
 * [Possible help](https://groups.google.com/forum/#!topic/ros-sig-aldebaran/9fRy1nPS0jA)
+* Rviz test: `roslaunch nao_description display.launch`
 
 ## Perlin Noise
 * Really good blog post explaination: [here](http://flafla2.github.io/2014/08/09/perlinnoise.html)
+
+## MoveIt
+* (explaination of current status of two repos/moveit-nao)[https://groups.google.com/forum/#!topic/ros-sig-aldebaran/9fRy1nPS0jA]
 
 ## Time/Findings/Misc
 * Not much ROS support for Keepon, could look into that repo, though
 * Using MoveIt/integration with Perlin
 * Went ahead and installed MoveIt, looks like it's used freq with Gazebo... and should help me get acclimated w/ actual Nao, simulation, etc
-
+* Made post w/ local rviz simulation issues
+*
