@@ -139,4 +139,128 @@ error:
 
 
 ## Chapter 5: Pointers and Arrays
+* A pointer is a variable that contains the address of a variable
+* operator (&) gives the address of an object, `p = &c;` assigs the address of c to the var p
+* `*` is the indirection or dereferencing operator - accesses the object the pointer points to 
+* unary operators: operate on a single operand, e.g. `++`, `--`, `!`, `*`
+    * associate right to left, so `(*ip)++` requires parenth
+
+### Pointers and Function Arguments
+* to implement swap function, pass pointers as arguments `swap(&a, &b)`
+
+### Pointers and Arrays
+* if `int *pa = arr;`, then `pa` points to `arr[0]`, and `*(pa + 1)` increments `pa` to the next element in the array
+* since the name of an array is a synonym for the location fo the initial element,`pa = &a[0]` is the same as `pa = a` and `a[i]` == `*(a+i)`
+* you can also use `pa[i]` with pointers
+* when an array name is passed to a function, it's simply the address of the initial element being passed in - so, instead of `char s[]` as a parameter, we can and should use `char *s` as it's more explicit
+
+### Address Arithmetic
+* Can use pointers to allocate/free blocks of memory
+* C guarantees that 0 is never a valid address for data
+* `NULL` is definied in `<stdio.h>`
+* pointers can be compared, is `p` and `q` point to members of the same array, then relations like `==`, `<`, etc work properly
+* pointer subtraction is also valid; if `p` and `q` are as defined above, and `p<q`, then `q-p+1` is the number of elements form `p` to `q` inclusive
+* `p + n` means the address of the n-th object beyond the one `p` is currently pointing to - regardless of what kind of object `p` points to (scaled)
+
+### Character Pointers and Functions
+* `char amessage[] = "now is the time";` is an array, and `char *pmessage = "now is the time";` is a pointer
+    * in the array, inidivual characters can be changed but it will always refer to the same storage
+    * in the pointer, it's initialized to point to a string constant, the pointer can be modified to point elsewhere, but you can't change the contents
+
+### Pointer Arrays; Pointers to Pointers
+* can have `char *lineptr[10000];`
+
+### Multidimensional Arrays
+* Can had 2D array, just an array of arrays
+* To pass to 2D array to function, parameter def must include the number of columns, e.g. `f(int daytab[][13]) {..}`
+
+### Pointers vs. Multi-dimensional Arrays
+* `int a[10][20];` sets aside 200 int-sized locations
+* `int *b[10];` assuming each element of `b` does point to a int[20], then 200 int-sized locations are set aside, along with 10 pointer locations, with the advantage that the rows of the array can be different lengths
+
+### Command line arguments
+* main is called with two arguments, the first being `argc` and second `argv`, the number of arguments and a pointer to an array of character strings
+* by convention, `argv[0]` is the name by which the program was invoked, so `argc` is always at least 1
+* `argv[argc] = '\0'`
+
+### Pointers to Functions
+* `int (*comp)(void *, void *)` : `comp` is a pointer to a function that has two `void *` args and returns an int
+
+### Complicated Declarations
+* `int *f()` - a function returning pointer to int, while `int (*pf)()` a pointer to a function returning int
+* `char (*(*x())[])()` : x is a function returning a pointer to array[] of pointer to function returning char
+
+## Chapter 6: Structures
+* A structure is a collection of one or more variables, grouped together under a single name for conveinient handling
+```c 
+struct point {
+    int x;
+    int y;
+};
+```
+* variables named in a structure are called members
+* `struct` declaration defines a type - so `struct { ... } x, y, z;` is analogous to `int x, y, z;`
+* can include tag to reference strcuture and for use in definitions of instances of the structure
+    * `struct point { int x; int y; };`
+* to initialize: `struct point maxpt = { 320, 200 };`
+* refer to members with structurename.member
+* can be nested
+    * `struct rect screen` -> `screen.pt1.x`
+
+### Structures and Functions
+```c
+stuct point makepoint(int x, int y)
+{
+    struct point temp;
+
+    temp.x = x;
+    temp.y = y;
+    return temp;
+}
+```
+* generally advised to pass pointers instead of large structures as arguments, to access member - `(*sp).x`, as `*sp.x` isn't a pointer in this case
+* alternative notation `sp->x`
+* structure operators are at the top of the precedence hierarchy: `.`, `->`, `()`, and `[]`
+
+### Arrays of Structures
+```c
+struct key {
+    char *word;
+    int count;
+} keytab [NKEYS];
+```
+* instead of making two parallel arrays, just make an array of structs
+
+### Self-referential Structures
+* illegal for a structure to contain an instance of itself, but can have pointers to an instance of itself
+```c 
+struct tnode {
+    char *word;
+    int count;
+    struct tnode *left;
+    struct tnode *right;
+}
+```
+
+### Typedef
+* `typedef` is a facility for creeating new dat type names
+    * `typedef int Length` makes the name `Length` a synonym for `int`
+* Used to parameterize a program against portability issues, and to provide better documentation
+
+### Documentation
+* A union is an object that may hold objects of different types and size, with the compiler keeping track of size and alignment requirements
+* syntax based on structures
+```c 
+union u_tag {
+    int ival;
+    float fval;
+    char *sval;
+} u;
+```
+    * `u` will be large enought to hold the largest of the three types
+    * any of the types may be assigned to `u`, as long as the usage is consistant
+* members accessed same way as structures
+* can only be initialized with the type of its first member
+
+### Bit Fields
 * 
