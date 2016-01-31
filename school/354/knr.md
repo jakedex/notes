@@ -247,7 +247,7 @@ struct tnode {
     * `typedef int Length` makes the name `Length` a synonym for `int`
 * Used to parameterize a program against portability issues, and to provide better documentation
 
-### Documentation
+### Unions
 * A union is an object that may hold objects of different types and size, with the compiler keeping track of size and alignment requirements
 * syntax based on structures
 ```c 
@@ -263,4 +263,58 @@ union u_tag {
 * can only be initialized with the type of its first member
 
 ### Bit Fields
+* A *bit-field* is a set of adjacent bits w/in a single implementation-defined storage unit that we will call a 'word'
+* define a variable called `flags` that contains three 1-nbit fields:
+```c
+struct {
+    unsigned int is_keyword : 1;
+    unsigned int is_extern : 1;
+    unsigned int is_static : 1;
+} flags;
+```
+* number following the colon represents the field width in bits
+* may only be declared as ints
+
+## Chapter 7: Input and Output
+* I/O is not a part of the C language itself, but are contained in the standard library
+
+### Standard input and output
+* simplest input mechanism is to read one character at a time from the standard input with `int getchar(void)`
+    * returns next input char each time it's called, or `EOF` when it encounters theend of file
+* `<` can be used to substitute file for input redirection: `prog <infile`
+* `int putchar(int)` puts the char c on the std output and returns EOF if an error occurs
+* `>` output can be redirected to a file name
+* i/o library functions are included in `stdio.h`
+
+### Formatted Output - Printf
+* `printf` translates internal values to characters
+* returns the number of characters printed
+* (http://www.tutorialspoint.com/c_standard_library/c_function_printf.htm)[http://www.tutorialspoint.com/c_standard_library/c_function_printf.htm]
+
+### Variable-length Argument Lists
+* `<stdarg.h>` contains a set of macro definitions that define how to step through an argument list
+
+### Formatted Input with Scanf
+* `scanf` is input analog of `printf` : `int scanf(char *fmt, ...)`
+* each argument following *fmt must be a pointer to the location of where to store the var
+* to read input lines that contain dates of the form 25 Dec 1988, 
+```c
+int day, year;
+char monthname[20];
+
+scanf("%d %s %d", &day, monthname, &year);
+```
+* scanf ignores the blanks and tabs in its format string and skips over whitespace as it looks for input values
+
+### File Access
+* `FILE *fopen(name, mode)` returns a file pointer - a structure that contains info about the file
+* `FILE` defined with `typedef`
+* modes include 'r', 'w', and 'a'
+* to read, write FILEs - use `int getc(FILE *fp)` and `int putc(int c, FILE *fp)`
+* upon starting a C program, the operating system environment opens the following three files and provides file pointers to them - stdin, stdout, and stderr
+* `getchar` and `putchar` can be defined like `#define getchar()    getc(stdin)`
+* `fclose(FILE *fp)` breaks the connection between the file pointer and the external name that was established with `fopen`, and flushes the buffer 
+    * `fclose` is called automatically for each open file when a program terminates normally
+
+### Error Handling - Stderr and Exit
 * 
