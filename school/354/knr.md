@@ -317,4 +317,36 @@ scanf("%d %s %d", &day, monthname, &year);
     * `fclose` is called automatically for each open file when a program terminates normally
 
 ### Error Handling - Stderr and Exit
+* `stderr` output stream appears normally on the screen, even if the stnd output is redirected
+* w/in main , return expr is equivalent to exit(expr)
+* `int ferror(FILE *fp)` returns non-zero if an error occurred on the stream fp
+
+### Line input and Output
+* `char *fgets(char *line, int maxline, FILE *fp)` reads the next input line (including newline) from file fp into the character array line; at most maxline-1 characters will be read
+* `int fputs(char *line, FILE *fp)` writes a string to a file
+
+### Storage Management
+* `void *malloc(size_t n)` returns a pointer to n bytes of uninitialized storage
+* `void *calloc(size_t n, size_t size)` returns a pointer to enough space for an array of n objects of the specified size, or NULL if the request cannot be satisfied 
+* The storage is initalized to zero
+* POINTER MUST BE CAST INTO THE APPROPRIATE TYPE
+    * int *ip;
+    * `ip = (int *) calloc(n, sizeof(int));`
+* `free(p)` fress the space pointed to by `p`, where `p` was originally obtained by a call to `malloc` or `calloc`
+* Don't free anything that isn't obtained from `m|calloc`
+
+## Chapter 8: The UNIX System Interface
+* UNIX provides its services through set of system calls - which are in effec tfunctions within the os that may be called by user programs
+
+### File Descriptors
+* In the process of opening a file, the system checks your right to do so - if all goes well, the system returns to the program a small non-negative integer called a *file descriptor*
+    * whenever I/O is done on the file, the file descriptor is used instead of the name to identify the file (analogous to a file pointer in C)
+* since I/O with the keyboard and screen is so common, when the shell runs a program, three files are open, with file descriptors 0, 1, and 2, called the standard input.... , resp. 
+* User can redirect I/O with `<` and `>`, e.g. `prog <infile >outfile`
+
+### Low Level I/O - Read and Write
+* read,write system calls are accessed from C programs through functions `read` and `write`
+    * `int n_read read(int fd, char *buf, int n);`
+
+### Open, Creat, Close, Unlink
 * 
