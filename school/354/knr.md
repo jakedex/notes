@@ -349,4 +349,21 @@ scanf("%d %s %d", &day, monthname, &year);
     * `int n_read read(int fd, char *buf, int n);`
 
 ### Open, Creat, Close, Unlink
-* 
+* the `open` system call returns a file descriptor (int)
+    * `int open(char *name, int flags, int perms)`
+* `int creat(char *name, int perms)` system call creates new files, or re-writes old ones
+
+### Random Access - Lseek 
+* system call `lseek` provides way to move around in a file without reading or writing any data
+    * `long lseek(int fd, long offset, int origin)`
+    * origin can be 0, 1, or 2 to specify that offset is to be measured from the beginning, the current position, or from the end of the file respectively
+
+### Example - Listing Directories
+* Directory is simply a file with a list of filenames and inodes (where all info besides filename is kept)
+
+### Example - A Storage Allocator
+* Free storage is kept as a list of free blocks of storage with each block containing a size, a pointer to the next, and the space itself (control info at beginning is called a header)
+* When a request is made, the free list is traversed until a big enough block is found (first fit), once found, the block is unlinked from the list and returned to the user
+* If the block is too big, it's split and the correct size is unlinked and returned to the user
+* If the there are no blocks large enough, more space is requested from the OS and added to the list
+* All blocks are multiples of the correctly aligned header
