@@ -1,4 +1,5 @@
 # tmux shortcuts & cheatsheet
+Source: [https://gist.github.com/MohamedAlaa/2961058](https://gist.github.com/MohamedAlaa/2961058)
 
 start new:
 
