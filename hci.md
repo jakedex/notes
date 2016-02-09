@@ -20,7 +20,7 @@
 
 ## How-To
 ### Launch simulated Nao
-* with moveit: change ip to 127.0.0.1 (localhost) in `nao_dcm_robot/nao_dcm_bringup/config/nao_dcm.yaml`, set envr var NAO_IP to 127.0.0.1 (localhost), run `roslaunch nao_gazebo_plugin nao_gazebo_plugin_H25.launch`
+* with moveit: change ip to 127.0.0.1 (localhost) in `nao_dcm_robot/nao_dcm_bringup/config/nao_dcm.yaml`, set envr var `NAO_IP` to `127.0.0.1` (localhost), run `roslaunch nao_gazebo_plugin nao_gazebo_plugin_H25.launch`
 
 ## Time/Findings/Misc
 ### 1/29/16 week
