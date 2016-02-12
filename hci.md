@@ -15,6 +15,13 @@
 ## Perlin Noise
 * Really good blog post explaination: [here](http://flafla2.github.io/2014/08/09/perlinnoise.html)
 
+## Robotics, misc, new terms/concepts
+* urdf: Unified Robot Description Format- an XML format for representing a robot model
+* teleoperation, teleops: 'remote control'
+* odometry: use of motion data to estimate change in position over time
+* tf: keeps track of coordinate frames, allows user to simply transform points, vectors, etc between any two coordinate frames 
+* localization: 'where in environment is the robot and what is the robot's orientation in that environment?'
+
 ## MoveIt
 * [explaination of current status of two repos/moveit-nao](https://groups.google.com/forum/#!topic/ros-sig-aldebaran/9fRy1nPS0jA)
 
@@ -51,11 +58,17 @@
 * gazebo simulates all the Nao sensors with plugins
 * nao\_bringup uses naoqi\_bridge's naoqi\_driver, this node publishes all sensor/actuator/battery/temp data to their corresponding topics, and subscribes to RVIZ simple\_goal and cmd\_vel for teleop
 * nao\_dcm stack doesn't use such driver, it 'connects' directly to the robot, not through the API that Aldebaran implemented with their driver
-* topic /joint\_angles is what nao\_controller node is subscribed to, likely what we'd want to filter/transform
 * looked into using [tf](http://wiki.ros.org/tf) and throwing transform data through perlin - but that limits the support to mostly distributed systems
 * whew, in the process, managed the get nao\_bringup to work by using the python SDK. Which is big as this *hopefully* resolves any issues I would have had with the nao\_dcm stack vs naoqi.
-* the /naoqi\_joint\_states node is publishing on the /joint\_states topic to the /naoqi\_moveTo node (is this the controller that interfaces with the naoqi_driver?)
-* Currently: figuring out what the /base\_footprint node is... looking for nodes/topics that could be generalized to other robots.
+* the /naoqi\_joint\_states node is publishing on the /joint\_states topic to the /naoqi\_moveTo node. the /naoqi\_joint\_states node simply reads in joint data from the Aldebaran API
+* interesting... [http://www.sc.ehu.es/ccwrobot/papers/rodriguez14humanizing.pdf](http://www.sc.ehu.es/ccwrobot/papers/rodriguez14humanizing.pdf)
+* /naoqi\_moveto node subscribed to topic /move\_base\_simple/goal, sending geometry_msgs/PoseStamped (basically raw positon/orientation) which is what we (likely) want to publish to
+* So, as of now, I'm positive it'll be possible to filter all/most data being sent to the robot, but what I question is how much it actually sent vs interpretted locally, that's where we could have issues. The Gaze aversion project is obviously different as it runs locally. I suppose I need to investigate the api communication, specifically the following model: pub\_node->message/topic->sub\_node to determine what the sub\_node is saying to the API.
+    * Also, the above brings up questions about the ROS package's generality - if simple, higher level, message/node/topic implementation isn't really viable, that means specialized config for each machine... 
+    * update: cmd_vel/teleop filtering is out of the question, the messages are only send once/vel change (makes sense)
+* Maybe tf/robot\_states deserve another look, what if we just 'perlinize' incoming state/odometry data so that tf bases future states on this already filtered state? is that even possible? pose to pose basis, just transform poses?
+* Currently: looking at the /move\_base\_simple/goal
+    * where are my controllers? is that only dcm? or only physical? am i missing a package?
 
 ## Todo
 * [x] Gaze aversion
@@ -65,4 +78,4 @@
 * [ ] creating idle motion, look at gaze aversion
 * [ ] make sure head motion works
 * [ ] doc out sending to topics, which topics, etc
-* [ ] add new branch to gaze aversion
+* [x] add new branch to gaze aversion
