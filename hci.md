@@ -70,6 +70,10 @@
 * Currently: looking at the /move\_base\_simple/goal
     * where are my controllers? is that only dcm? or only physical? am i missing a package?
 
+### 2/15/16 week
+* the nao\_driver package has been replaced with nao\_bringup and nao\_robot. the nao\_controller, aka node i was looking for last week, was deprecated with the switch to bringup and robot. to my understanding, all of the controller's functionality now lies in naoqi\_pose, which listens for joint states along with actionlib goals (tbd). 
+* to move individual joints, can either send goals (geometry\_msgs with actionlib) on topic move\_base\_simple/goal to naoqi\_posecontroller node. Or, send sending joint angle with speed messages on the /joint\_angles topic to the pose\_controller node
+*
 
 ### Misc
 * figure out how to implement
@@ -86,7 +90,7 @@
 * [x] Gaze aversion
 * [x] ROS with physical nao
 * [ ] filtering messages... simulate nao and view messages... 
-* [ ] attempt ROS topic transform
+* [x] attempt ROS topic transform
 * [ ] creating idle motion, look at gaze aversion
 * [ ] make sure head motion works
 * [ ] doc out sending to topics, which topics, etc
