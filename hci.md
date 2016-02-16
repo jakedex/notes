@@ -70,6 +70,18 @@
 * Currently: looking at the /move\_base\_simple/goal
     * where are my controllers? is that only dcm? or only physical? am i missing a package?
 
+
+### Misc
+* figure out how to implement
+   * add on filter to pose\_controller? - not general
+   * actionlib - not sure if I have as precise of control, but this is definitely more general 
+   * [https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
+   * 
+
+### Discuss w/ Sean
+* No apparent damages other than what you had already noted, though I still need to test walking etc. 
+* 
+
 ## Todo
 * [x] Gaze aversion
 * [x] ROS with physical nao
