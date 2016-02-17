@@ -73,7 +73,10 @@
 ### 2/15/16 week
 * the nao\_driver package has been replaced with nao\_bringup and nao\_robot. the nao\_controller, aka node i was looking for last week, was deprecated with the switch to bringup and robot. to my understanding, all of the controller's functionality now lies in naoqi\_pose, which listens for joint states along with actionlib goals (tbd). 
 * to move individual joints, can either send goals (geometry\_msgs with actionlib) on topic move\_base\_simple/goal to naoqi\_posecontroller node. Or, send sending joint angle with speed messages on the /joint\_angles topic to the pose\_controller node
-*
+    * `rostopic pub /joint_angles naoqi_bridge_msgs/JointAnglesWithSpeed -- '[ 1, now, Head]' '[HeadYaw,HeadPitch]' '[1,-1]'  1.0  0`
+* ![ROS Control map](http://wiki.ros.org/ros_control?action=AttachFile&do=get&target=gazebo_ros_control.png)
+* All (most? aside from moveit/gazebo?) ROS navigation commands are sent either in the form of individual messages of type joint\_trajectory (joint name, coordinates), or actionlib through geometry\_msg types (need to read up on actionlib)
+* Currently looking into actionlib, joint\_trajectory, and trajectory filters
 
 ### Misc
 * figure out how to implement
@@ -84,7 +87,7 @@
 
 ### Discuss w/ Sean
 * No apparent damages other than what you had already noted, though I still need to test walking etc. 
-* 
+* Implementation talk - features, etc. So we want to provide an idle motion, along with filtering all user invoked motion?
 
 ## Todo
 * [x] Gaze aversion
@@ -92,6 +95,6 @@
 * [ ] filtering messages... simulate nao and view messages... 
 * [x] attempt ROS topic transform
 * [ ] creating idle motion, look at gaze aversion
-* [ ] make sure head motion works
+* [x] make sure head motion works
 * [ ] doc out sending to topics, which topics, etc
 * [x] add new branch to gaze aversion
