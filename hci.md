@@ -91,6 +91,6 @@
 
 
 ## Todo
-* [ ] implement c# perlin in python
+* [x] implement c# perlin in python
 * [ ] tf turtlebot
 
