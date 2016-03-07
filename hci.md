@@ -78,6 +78,10 @@
 * All (most? aside from moveit/gazebo?) ROS navigation commands are sent either in the form of individual messages of type joint\_trajectory (joint name, coordinates), or actionlib through geometry\_msg types (need to read up on actionlib)
 * Currently looking into actionlib, joint\_trajectory, and trajectory filters
 
+### 2/22/16 week
+* Can send basic Twist messages but they're all relative to the current position
+*
+
 ### Misc
 * figure out how to implement
    * add on filter to pose\_controller? - not general
@@ -85,16 +89,8 @@
    * [https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
    * 
 
-### Discuss w/ Sean
-* No apparent damages other than what you had already noted, though I still need to test walking etc. 
-* Implementation talk - features, etc. So we want to provide an idle motion, along with filtering all user invoked motion?
 
 ## Todo
-* [x] Gaze aversion
-* [x] ROS with physical nao
-* [ ] filtering messages... simulate nao and view messages... 
-* [x] attempt ROS topic transform
-* [ ] creating idle motion, look at gaze aversion
-* [x] make sure head motion works
-* [ ] doc out sending to topics, which topics, etc
-* [x] add new branch to gaze aversion
+* [ ] implement c# perlin in python
+* [ ] tf turtlebot
+
