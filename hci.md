@@ -25,6 +25,8 @@
 ## MoveIt
 * [explaination of current status of two repos/moveit-nao](https://groups.google.com/forum/#!topic/ros-sig-aldebaran/9fRy1nPS0jA)
 
+## TF
+
 ## How-To
 ### Launch simulated Nao
 * in gazebo: change ip to 127.0.0.1 (localhost) in `nao_dcm_robot/nao_dcm_bringup/config/nao_dcm.yaml`, set envr var `NAO_IP` to `127.0.0.1` (localhost), run `roslaunch nao_gazebo_plugin nao_gazebo_plugin_H25.launch` then `rosrun rviz rviz`
@@ -82,15 +84,29 @@
 * Can send basic Twist messages but they're all relative to the current position
 *
 
+### 2/28/16 week
+* sidenote: So, went off on a tangent after learning more about tf and things are finally coming together. The joint states array of vel/pos/effort is translated into TF by robot\_state\_publisher. naoqi\_moveto listens for PoseStamped msgs on the //move_base_simple/goal. (in other words, listening for actionlib goals)
+* That being said, pose\_controller is sub'd to /joint\_angles, would publishing to this work? (It's my understanding that most robots emphasis on robots do have some variant of /joint\_angles)
+* We just want an idle guy to be moving around slowly w noise, specifically on a specified joint. 
+    * so we want to apply noise to any 'frame', joint etc, regardless of input
+    * could be done with tf? yeah, and couldn't we just filter each? yeah. but we need to make sure we're receiving all of them constantly. honestly something like a filter between robot state publisher would be optimal, afaik. 
+    * or, joint\_states -> joint\_angles with gazebo guide below? (promising...)
+        * [gazebo guide](http://gazebosim.org/tutorials?tut=drcsim_ros_cmds&cat=drcsim)
+* for turtle\_bot sim, we just want tf pub to turtles's position plus perlin
+
+### 3/6/16 week
+
+
+
+
 ### Misc
 * figure out how to implement
    * add on filter to pose\_controller? - not general
-   * actionlib - not sure if I have as precise of control, but this is definitely more general 
-   * [https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
-   * 
+        * [https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
+   * tf
+   * /joint\_states -> /joint\_angles
 
 
 ## Todo
-* [x] implement c# perlin in python
 * [ ] tf turtlebot
-
+* [ ] comparison writeup
