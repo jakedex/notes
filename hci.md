@@ -30,6 +30,8 @@
 * transform is basically the offset between two frames
 * `rosrun rqt_graph rqt_graph`
 * [move\_to.py](http://docs.ros.org/jade/api/naoqi_driver_py/html/src_2naoqi__driver_2naoqi__moveto_8py_source.html)
+* use `rosrun tf view_frames` to create a diagram of the frames being broadcast by tf over ROS
+* Current status on TF - so we can write a broadcaster to send out noise values to frames.. or/and have the listener add noise to all of the values it receives...
 
 ## How-To
 ### Launch simulated Nao
@@ -100,7 +102,7 @@
 
 ### 3/6/16 week
 * base\_footprint is literally calculating and publishing the 'ground' frame 
-
+* [Implementing Perlin Noise in ROS](https://docs.google.com/document/d/1KJ_mjMWaNjuOcGqn9yt_yRn_FuvPcu4qsKEV4n8r59U/edit?usp=sharing)
 
 ### Misc
 * figure out how to implement
