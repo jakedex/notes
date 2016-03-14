@@ -103,6 +103,8 @@
 ### 3/6/16 week
 * base\_footprint is literally calculating and publishing the 'ground' frame 
 * [Implementing Perlin Noise in ROS](https://docs.google.com/document/d/1KJ_mjMWaNjuOcGqn9yt_yRn_FuvPcu4qsKEV4n8r59U/edit?usp=sharing)
+* [pose\_controller](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
+
 
 ### Misc
 * figure out how to implement
