@@ -26,6 +26,10 @@
 * [explaination of current status of two repos/moveit-nao](https://groups.google.com/forum/#!topic/ros-sig-aldebaran/9fRy1nPS0jA)
 
 ## TF
+* a frame is simply a way to think about coordinates and data locally
+* transform is basically the offset between two frames
+* `rosrun rqt_graph rqt_graph`
+* [move\_to.py](http://docs.ros.org/jade/api/naoqi_driver_py/html/src_2naoqi__driver_2naoqi__moveto_8py_source.html)
 
 ## How-To
 ### Launch simulated Nao
@@ -95,8 +99,7 @@
 * for turtle\_bot sim, we just want tf pub to turtles's position plus perlin
 
 ### 3/6/16 week
-
-
+* base\_footprint is literally calculating and publishing the 'ground' frame 
 
 
 ### Misc
