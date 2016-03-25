@@ -105,15 +105,13 @@
 * [Implementing Perlin Noise in ROS](https://docs.google.com/document/d/1KJ_mjMWaNjuOcGqn9yt_yRn_FuvPcu4qsKEV4n8r59U/edit?usp=sharing)
 * [pose\_controller](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
 
+### 3/20/16 week
+* 
 
-### Misc
-* figure out how to implement
-   * add on filter to pose\_controller? - not general
-        * [https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
-   * tf
-   * /joint\_states -> /joint\_angles
 
 
 ## Todo
-* [ ] tf turtlebot
-* [ ] comparison writeup
+* create filter
+* create node
+* test
+*
