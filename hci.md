@@ -106,7 +106,8 @@
 * [pose\_controller](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py)
 
 ### 3/20/16 week
-* 
+* `rostopic pub -1 /joint_angles naoqi_bridge_msgs/JointAnglesWithSpeed '{header: auto, joint_names: ["LAnklePitch", "RAnklePitch"], joint_angles: [0, 0], speed: 1}'`
+*
 
 
 
