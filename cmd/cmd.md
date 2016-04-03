@@ -7,7 +7,7 @@
 _Command structure: [command][flag/option][argument]_
 
 * ctrl+a/e/r/u to navigate/clear the line
-	* ctrl+f/b move forward/backward a character
+* ctrl+f/b move forward/backward a character
 * `ls -rtlh` "list by reversed time of modif"
 * `**` list all subfiles
 * `mv [oldfilename] [newfilename]` rename files
@@ -39,6 +39,11 @@ _Command structure: [command][flag/option][argument]_
 * `apropos` search the whatis database for strings (looks through help files)
 * output into command `cd $(dirname $(which rails))`
 * `w` to view user stats
+* `ctrl-w` delete last word
+* `alt-b` and `alt-f` to move by word
+* `history` to see previous commands
+* 
+
 
 ### Less
 * `h` see commands
