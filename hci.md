@@ -107,12 +107,14 @@
 
 ### 3/20/16 week
 * `rostopic pub -1 /joint_angles naoqi_bridge_msgs/JointAnglesWithSpeed '{header: auto, joint_names: ["LAnklePitch", "RAnklePitch"], joint_angles: [0, 0], speed: 1}'`
-*
 
-
+### 3/27/16 week
+* Important distinction between Generator and NaoGaze Perlin implementations - Generator is calling the Noise function with a single, increasing, value. While the NaoGaze is passing the previous X,Y,Z positions to generate noise values. 
 
 ## Todo
 * create filter
 * create node
 * test
-*
+* publishing/packaging
+    * [ROS cpp style guide](http://wiki.ros.org/CppStyleGuide)
+    * C++ template filter methods
