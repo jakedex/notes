@@ -118,3 +118,11 @@
 * publishing/packaging
     * [ROS cpp style guide](http://wiki.ros.org/CppStyleGuide)
     * C++ template filter methods
+    * dynamic reconfigure
+    * tests?
+    * usage/readme
+    * .launch for various robots
+    *
+
+## Ask Sean
+* Seeding?
