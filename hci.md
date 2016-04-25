@@ -37,7 +37,7 @@
 ### Launch simulated Nao
 * in gazebo: change ip to 127.0.0.1 (localhost) in `nao_dcm_robot/nao_dcm_bringup/config/nao_dcm.yaml`, set envr var `NAO_IP` to `127.0.0.1` (localhost), run `roslaunch nao_gazebo_plugin nao_gazebo_plugin_H25.launch` then `rosrun rviz rviz`
 * with naoqi and nao\_bringup: first start naoqi with `naoqi/naoqi-sdk-2.1.2.17-linux64/naoqi --verbose --broker-ip 127.0.0.1` and then the driver pointing to the simulated robot with `NAO\_IP=127.0.0.1 roslaunch nao_bringup nao_full_py.launch` or `roslaunch naoqi_driver_py naoqi_driver.launch` (I was having issues with the cpp driver...)
-    * load model in rviz: `roslaunch nao_description robot_state_publisher.launch` and finally, `roslaunch rviz rviz`. then once in rviz, you'll need to follow the steps described under "Viewing the simulated Nao robot in rviz" [here](http://wiki.ros.org/nao/Tutorials/Getting-Started)
+    * load model in rviz: `roslaunch nao_description robot_state_publisher.launch` and finally, `rosrun rviz rviz`. then once in rviz, you'll need to follow the steps described under "Viewing the simulated Nao robot in rviz" [here](http://wiki.ros.org/nao/Tutorials/Getting-Started)
 
 ### Launch Physical Nao in rviz
 * to bring up nao and view in rviz : `roscore` `roslaunch nao_bringup nao_full.launch nao_ip:=192.168.1.201 roscore_ip:=10.211.55.3` and then `rosrun rviz rviz`
@@ -122,8 +122,11 @@
     * tests?
     * usage/readme
     * .launch for various robots
-    * MultiChannelFilterChain
-    *
+* code
+    * seperate motion gen class
+    * update, init methods in node class
 
-## Ask Sean
-* Seeding?
+## To run
+* `roscore`
+* `roslaunch perlin_noise_node node_example.launch`
+
