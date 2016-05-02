@@ -111,6 +111,11 @@
 ### 3/27/16 week
 * Important distinction between Generator and NaoGaze Perlin implementations - Generator is calling the Noise function with a single, increasing, value. While the NaoGaze is passing the previous X,Y,Z positions to generate noise values. 
 
+### 4/24/16 week
+* Well, it's not smooth smooth on physical... needs work
+    * will have to disable ALautonomousLife - Simply double tap chest btn
+    * rate at which messages come in varies.. need some way to stablize this... a timer really would help.
+
 ## Todo
 * create filter
 * create node
@@ -128,5 +133,9 @@
 
 ## To run
 * `roscore`
-* `roslaunch perlin_noise_node node_example.launch`
+* `roslaunch perlin_noise_node default.launch`
+* `rosservice call /nao_robot/pose/body_stiffness/enable "{}"`
+
+### Issues
+* 
 
