@@ -137,5 +137,9 @@
 * `rosservice call /nao_robot/pose/body_stiffness/enable "{}"`
 
 ### Issues
-* 
+* actionlib for blocking and queuing, or else scaling var
+* kinova
+* attempt perlin+pose/motion
+* flesh out notes
+*
 
