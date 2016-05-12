@@ -114,12 +114,14 @@
 ### 4/24/16 week
 * Well, it's not smooth smooth on physical... needs work
     * will have to disable ALautonomousLife - Simply double tap chest btn
-    * rate at which messages come in varies.. need some way to stablize this... a timer really would help.
+    * rate at which messages come in varies.. need some way to stablize this... a timer really would help. (or just use a different callback - timer..)
+
+### 5/1/16 week
+* Action lib queuing
+    * actionlib supports it, and even buffers, but it's up to the implementation of the server
+    * nao's [pose controller](https://github.com/ros-naoqi/naoqi_bridge/blob/master/naoqi_pose/nodes/pose_controller.py) uses `SimpleActionServer`s, which are limited to only one goal - whenever there's an incoming goal, the current is canceled... [source](http://answers.ros.org/question/9776/action-server-with-more-than-one-action/)
 
 ## Todo
-* create filter
-* create node
-* test
 * publishing/packaging
     * [ROS cpp style guide](http://wiki.ros.org/CppStyleGuide)
     * C++ template filter methods
@@ -129,17 +131,15 @@
     * .launch for various robots
 * code
     * seperate motion gen class
+    * programatically enable stiffness
     * update, init methods in node class
 
-## To run
+## To run node/filter
 * `roscore`
 * `roslaunch perlin_noise_node default.launch`
 * `rosservice call /nao_robot/pose/body_stiffness/enable "{}"`
 
 ### Issues
-* actionlib for blocking and queuing, or else scaling var
-* kinova
+* scaling var
 * attempt perlin+pose/motion
-* flesh out notes
-*
 
