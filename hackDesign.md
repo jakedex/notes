@@ -14,7 +14,7 @@
     * `<div height="200" width="300"></div>`
         * draws 400x600 device pixels to keep the same physical size
     * *Bitmap Pixels*: Smallest unit of data in a raster image (PNG, JPG, GIF, etc)
-        * When raster image is displayed at full size on a standard-density display, 1 bitmap pixel corresponds to 1 device pixel  !(https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2012/07/css-device-bitmap-pixels.png)
+        * When raster image is displayed at full size on a standard-density display, 1 bitmap pixel corresponds to 1 device pixel  ![](https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2012/07/css-device-bitmap-pixels.png)
 
 ### Lesson 5: Typography in Product Design
 
@@ -27,7 +27,7 @@
             * Measured from the baseline of each line of text
                 * Descenders, parts of the letters that are longer (e.g. lowercase g), fall below the baseline
                 * Ascenders are the opposite (e.g. h)
-        * Kerning is to adjust the spacing between a pair of letters, numerals, punctuation. 
+        * Kerning is to adjust the spacing between a pair of letters, numerals, punctuation.
         * Tracking (letter spacing) adjusts the spacing between all the glyphs in one text
 
 * [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography)
@@ -52,20 +52,20 @@
 * [Five Simple Steps to Designing Grid Systems](http://www.markboulton.co.uk/journal/five-simple-steps-to-designing-grid-systems-preface)
     * Part 1:
         * In this example, divide paper using 1:1.414 (A4 ratio)
-        !(http://www.markboulton.co.uk/images/portfolio/grid_pt1_1.gif)
-        !(http://www.markboulton.co.uk/images/uploads/grid_pt1_2.gif)
+        ![](http://www.markboulton.co.uk/images/portfolio/grid_pt1_1.gif)
+        ![](http://www.markboulton.co.uk/images/uploads/grid_pt1_2.gif)
     * Part 2: Ratios and Complex Grid Systems
         * With the given double page spread, a asymetrical grid is required
         * Shaping the page
-        !(http://www.markboulton.co.uk/images/uploads/grid_pt2_1.gif)
+        ![](http://www.markboulton.co.uk/images/uploads/grid_pt2_1.gif)
         * Applying the Golden Section to get two columns, A and B
-        !(http://www.markboulton.co.uk/images/uploads/grid_pt2_2.gif)
+        ![](http://www.markboulton.co.uk/images/uploads/grid_pt2_2.gif)
         * Extend lines of content area
-        !(http://www.markboulton.co.uk/images/uploads/grid_pt2_3.gif)
+        ![](http://www.markboulton.co.uk/images/uploads/grid_pt2_3.gif)
         * Add in 'hanging lines' to give the reader a consistent place to rest their eyes
-        !(http://www.markboulton.co.uk/images/uploads/grid_pt2_4.gif)
+        ![](http://www.markboulton.co.uk/images/uploads/grid_pt2_4.gif)
         * Add content
-        !(http://www.markboulton.co.uk/images/uploads/grid_pt2_5.gif)
+        ![](http://www.markboulton.co.uk/images/uploads/grid_pt2_5.gif)
     * Part 3: Grid systems for the Web
         * 9, 12 grid systems are good - let's use them correctly, though
     * Part 4: Fixed
@@ -74,10 +74,10 @@
 ### Lesson 12: Understanding the User in UX
 
 * [When should your startup focus on UX](http://uxceo.com/post/46777371976/when-should-your-startup-focus-on-ux)
-    * !(http://66.media.tumblr.com/b7f7468a090189e5be16b13541996a4a/tumblr_inline_mkjgg7m86R1qz4rgp.png)
+    * ![](http://66.media.tumblr.com/b7f7468a090189e5be16b13541996a4a/tumblr_inline_mkjgg7m86R1qz4rgp.png)
 
 * [Quick Course On Effective Website Copywriting](https://www.smashingmagazine.com/2012/05/quick-course-on-effective-website-copywriting/)
- 
+
 
 * [Using webfonts in 2015](https://helloanselm.com/2015/using-webfonts-in-2015/)
     1. Load webfonts asynchonously with *font face observer*
@@ -91,7 +91,7 @@
     * [Summary of key rules](http://practicaltypography.com/summary-of-key-rules.html)
 
 
-### Misc 
+### Misc
 
 * [8 pt grid](http://spec.fm/specifics/8-pt-grid)
     * Baseline text to develope vertical consistency - best to combine 8pt UI grid with 4pt baseline grid
