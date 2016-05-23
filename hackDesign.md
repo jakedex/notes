@@ -2,14 +2,14 @@
 
 ### Lesson 2: Dive Into Typography
 
-* [better web typography](http://www.creativebloq.com/typography/better-web-typography-few-simple-steps-5132803)
+* [Better Web Typography](http://www.creativebloq.com/typography/better-web-typography-few-simple-steps-5132803)
     * avoid using the `<b>` and `<i>` tags, instead use `<strong>` and `<em>`. The latter leaves you with the freedom to change the appearance via CSS
     * Use [HTML entities](https://www.w3.org/TR/html4/sgml/entities.html#h-24.1) for symbols like the trademark, multiplication sign, and apostrophes
     * Quote correctly - use a right single quotation mark for an apostrophe
 
 ### Lesson 4: Know Your Tools
 
-* [towards a retina web](https://www.smashingmagazine.com/2012/08/towards-retina-web/)
+* [Towards a Retina Web](https://www.smashingmagazine.com/2012/08/towards-retina-web/)
     * CSS pixels are referred to as Device independent pixels (DIPs)
     * `<div height="200" width="300"></div>`
         * draws 400x600 device pixels to keep the same physical size
@@ -18,7 +18,7 @@
 
 ### Lesson 5: Typography in Product Design
 
-* [Practice Guide to Typography on the Web](http://webdesign.tutsplus.com/articles/choosing-the-right-font-a-practical-guide-to-typography-on-the-web--webdesign-15)
+* [Practice Guide to Typography on the Web](http://webdesign.tutsplus.com/articles/choosing-the-right-font-a-practical-guide-to-typography-on-the-web--webdesign-15)  
     * Readability
         * Choose body of at least size 12px
         * Title should only be as big as it needs to be
@@ -40,7 +40,7 @@
 ### Lesson 7: Responsive Typography in Action
 
 * Example of great resp. typo: [The Great Discontent](http://thegreatdiscontent.com/interview/steven-harrington)
-* Tool for experimenting with Typography/Typefaces [Typecast](https://hackdesign.org/tasks/53)
+* Tool for experimenting with Typography/Typefaces: [Typecast](https://hackdesign.org/tasks/53)
 
 ### Lessson 8: Typography in Practice
 
@@ -89,6 +89,21 @@
     * Line spacing should be 120-145% of the point size
     * Line length should be an average of 45-90 characters per line
     * [Summary of key rules](http://practicaltypography.com/summary-of-key-rules.html)
+
+### Lesson 17: Building Color Confidence
+
+* [Color Theory For Designers, Part 2: Understanding Concepts And Terminology](https://www.smashingmagazine.com/2010/02/color-theory-for-designers-part-2-understanding-concepts-and-terminology/)
+
+* [Color Theory For Designers, Part 3: Creating Your Own Color Palettes](https://www.smashingmagazine.com/2010/02/color-theory-for-designer-part-3-creating-your-own-color-palettes/)
+    * Scheme Types:
+        * Monochromatic: Monochromatic color schemes are made up of different tones, shades and tints within a specific hue
+        * Analogous: Analogous schemes are created by using three colors that are next to each other on the 12-spoke color wheel
+            * May require toning down chroma to make usable as a color scheme
+        * Complementary: Complementary schemes are created by combining colors from opposite sides of the color wheel
+        * Split Complementary: In this scheme, instead of using colors that are opposites, you use colors on either side of the hue opposite your base hue
+        * Triadic: Triadic schemes are made up of hues equally spaced around the 12-spoke color wheel
+        * DOUBLE-COMPLEMENTARY (TETRADIC)
+
 
 
 ### Misc
