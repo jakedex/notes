@@ -126,7 +126,34 @@ public abstract String howToEat();
 
 * Classes can implement interface with `implements` keyword
 * Since all data fields are `public static final` and all methods are `public abstract` in an interface, Java allows these modifiers to be omitted
-* Comparable interface
+* Comparable interface defines the `compareTo` method for comparing objects
+  ```java
+  public class Integer extends Number implements Comparable<Integer> {
+    // class body omitted
+    @Override
+    public int compareTo(Integer o) {
+        // Implementation omitted
+    }
+  }
+  ```
+
+* Cloneable interface specifies that an object can be cloned
+  * has an empty body (*marker interface*): simply denotes that a class possesses certain desirable properties
+  * cloned with `clone()` method defined in Object class
+  * `clone()` copies each field from original to target object
+    * primitive field's values are copied
+    * reference field's references are copied (shallow copy, as opposed to deep copy)
+  * To define custom class that's 'Cloneable', must override the `clone()` method in the Object class
+    * ```java
+    public Object clone() throws CloneNotSupportedException {
+      return super.clone();
+    }
+    ```
+      * Note this changes the Object class' `clone()` method's visibility to public
+
+* `native` keyword (e.g. `protected native Object clone() throws CloneNotSupportedException;
+`) indicates that the method is not written in Java but is implemented in the JVM for the native platform
+
 
 ### Abstract vs. Interface
 
@@ -139,9 +166,10 @@ public abstract String howToEat();
 ##### Interface
 
 * Can extend any number of interfaces at a time
-* Interface can only extend from an interface
-* Can only have public abstract methods
-* Can only have static final variables
+* Interface can only extend from an interface 
+* Can only have `public abstract` instance methods
+* Can only have `public static final` variables
+* No constructor
 * `abstract` keyword is optional to declare a method abstract
 
 
