@@ -1,8 +1,8 @@
 # Java Notes
 
-### [Introduction to Java Programming [Comprehensive Version]](http://www.amazon.com/Intro-Java-Programming-Comprehensive-Version/dp/0133761312)
+## [Introduction to Java Programming [Comprehensive Version]](http://www.amazon.com/Intro-Java-Programming-Comprehensive-Version/dp/0133761312)
 
-#### Chapter 1
+### Chapter 1
 
 * .java -> compiles to .class that's then executed by JVM
 * Float 32-bit IEEE 754, double 64-bit IEEE 754
@@ -10,7 +10,8 @@
 * When executing a Java program, the JVM first loads the bytecode of the class to mem-ory using a program called the *class loader*. If your program uses other classes, the class loader dynamically loads them just before they are needed. After a class is loaded, the JVM uses a program called the *bytecode verifier* to check the validity of the bytecode and to ensure that the bytecode does not violate Java’s security restrictions
 * `/**` denotes a javadoc comment
 
-#### Chapter 2
+
+### Chapter 2
 
 * Naming conventions: ClassName, methodName(), variableName, CONSTANT_NAME
 * Floating point literals: By default, are considered double values (e.g. 5.0). Append letter `f` of `F` to make float.
@@ -18,13 +19,16 @@
 * Avoid round off errors by using integers whenever a precise result is required
 * Avoid unintended integer division by making sure one of the operands is a floating point number
 
+
 ### Chapter 3
 
 * Avoid equality test of two floating point values
 
+
 ### Chapter 6
 
 * The arguments are passed by value to parameters when invoking a method
+
 
 ### Chapter 9
 
@@ -45,6 +49,7 @@
 * Immutable class contains all private data fields, and no public setters
 * `this` refers to the object itself. It's often used to reference hidden data fields (e.g. `this.i = i`), and to invoke another constructor w/in the class
 
+
 ### Chapter 10
 
 * BigInteger and BigDecimal classes can be used to represent integers/decimals of any size/precision
@@ -62,6 +67,7 @@
   ```
 
 * The StringBuilder and StringBuffer classes are similar to the String class except that the String class is immutable
+
 
 ### Chapter 11
 
@@ -89,6 +95,9 @@
 * Neither a final class nor a final method can be extended. A final data field is a constant
 * The modifiers public, protected, private, static, abstract, and final are used on classes and class members (data and methods), except that the final modifier can also be used on local variables in a method. A final local variable is a constant inside a method
 * A static method cannot be overridden. If a static method defined in the superclass is redefined in a subclass, the method defined in the superclass is hidden. The hidden static methods can be invoked using the syntax SuperClassName.staticMethodName
+* Always reference static variables and methods from a class name (as opposed to a reference variable) to avoid errors and improve readability
+* Don't pass a parameter from a constructor to initialize a static data field - it's better to use a setter method to change static data
+
 
 ### Chapter 12
 
@@ -100,6 +109,7 @@
   }
   ```
 * *token-reading* methods (e.g. nextByte(), nextInt(), etc) work by first skipping any delimiters then reads a token ending at a delimiter. The token is then converted into a value of the corresponding method call (i.e. int for nextInt())
+
 
 ### Chapter 13
 
@@ -155,22 +165,167 @@ public abstract String howToEat();
 `) indicates that the method is not written in Java but is implemented in the JVM for the native platform
 
 
-### Abstract vs. Interface
+##### Abstract vs. Interface
 
-##### Abstract
+* Abstract
+  * Class can only extend one abstract class
+  * Can have both abstract and concrete methods
+  * `abstract` keyword is mandatory to declare a method abstract
 
-* Class can only extend one abstract class
-* Can have both abstract and concrete methods
-* `abstract` keyword is mandatory to declare a method abstract
+*  Interface
+  * Can extend any number of interfaces at a time
+  * Interface can only extend from an interface
+  * Can only have `public abstract` instance methods
+  * Can only have `public static final` variables
+  * No constructor
+  * `abstract` keyword is optional to declare a method abstract
 
-##### Interface
+### Chapter 14: JavaFX Basics
 
-* Can extend any number of interfaces at a time
-* Interface can only extend from an interface 
-* Can only have `public abstract` instance methods
-* Can only have `public static final` variables
-* No constructor
-* `abstract` keyword is optional to declare a method abstract
+* Swing and AWT are replaced by the JavaFX platform for developing rich Internet applications
+* The abstract `javafx.application.Application` class defines the essential framework for writing JavaFX programs
+* Designed with theatre analogy - has stages, scenes, and nodes (actors)
+* Panes automatically lay out the nodes in a desired location and size
+* `StackPane` places nodes in the center of the pane on top of e/o
+* Java coordinate system's origin is at the upper left corner
+  * Y axis increases downwards
+* *Property binding* binds a target object (binding object) to a source object (bindable object). A change in the source object will be automatically reflected in the target
+  * Target binds to a source with `target.bind(source)`
+* Common properties and methods for Nodes include:
+  * Style properties called JavaFX CSS (defined with prefix `-fx-`)
+    * e.g. `circle.setStyle("-fx-stroke: black; -fx-fill: red;");`
+* `javafx.scene.image.ImageView` is a node for displaying an image
+  * `ImageView imageView = new ImageView("image/us.gif")`
+* JavaFX provides many types of panes for automatically laying out nodes in a desired location and size
+  * StackPane: Places the nodes on top of each other in the center of the pane.
+  * FlowPane: Places the nodes row-by-row horizontally or column-by-column vertically.
+  * GridPane: Places the nodes in the cells in a two-dimensional grid.
+  * BorderPane: Places the nodes in the top, right, bottom, left, and center regions.
+  * HBox: Places the nodes in a single row.
+  * VBox: Places the nodes in a single column.
+
+
+### Chapter 15: Event-Driven Programming and Animations
+
+* Buttons are *event source objects*-where the action originates
+* Event handler processes the event fired from the source object
+  * To be a handler of an action event:
+    * must be instance of `EventHandler<T extends Event>` interface
+    * EventHandler object handler must be registered with the event source object using the method `source.setOnAction(handler)`
+
+
+* An event is an object created from an event source. Firing an event means to create an event and delegate the handler to handle the event
+* The root class of the Java event classes is `java.util.EventObject`
+* The root class of the JavaFX event classes is `javafx.event.Event`
+  * EventObject <- Event <- ActionEvent, InputEvent, WindowEvent
+* Other event registration methods like:
+  * `setOnMousePressed(EventHandler<MouseEvent>)`
+  * `setOnKeyTyped(EventHandler<KeyEvent>)`
+* A handler is an object that must be registered with an event source object, and it must be an instance of an appropriate event-handling interface
+
+
+* An inner class, or nested class, is a class defined within the scope of another class. Inner classes are useful for defining handler classes
+* Normally define inner class if it is used only by its outer class
+* Features:
+  * An inner class is compiled into a class named `OuterClassName$InnerClassName. class`
+  * An inner class can reference the data and the methods defined in the outer class in which it nests, so you need not pass the reference of an object of the outer class to the constructor of the inner class
+  * An inner class can be defined with a visibility modifier subject to the same visibility rules applied to a member of the class
+  * An inner class can be defined as static. A static inner class can be accessed using the outer class name. A static inner class cannot access nonstatic members of the outer class
+  * To create an object of the inner class from another class:
+    * `OuterClass.InnerClass innerObject = outerObject.new InnerClass();`
+    * If static: `OuterClass.InnerClass innerObject = new OuterClass.InnerClass();`
+
+
+#### 15.5: Anonymous Inner Classes
+
+*An anonymous inner class is an inner class without a name. It combines defining an inner class and creating an instance of the class into one step*
+
+```java
+new SuperClassName/InterfaceName() {
+// Implement or override methods in superclass or interface
+    // Other methods if necessary
+}
+```
+* Like inner class with following unique features:
+  * An anonymous inner class must always extend a superclass or implement an inter- face, but it cannot have an explicit extends or implements clause
+  * An anonymous inner class always uses the no-arg constructor from its superclass to create an instance
+  * An anonymous inner class is compiled into a class named `OuterClassName$n. class` (e.g. `Test$1.class`)
+
+#### 15.6: Lambda Expressions
+
+*Lambda expressions can be used to greatly simplify coding for event handling*
+
+* New in Java 8, essentially anonymous class with concise syntax
+* Syntax:
+  * `(type1 param1, type2 param2, ...) -> expression`
+  * `(type1 param1, type2 param2, ...) -> { statements; }`
+* Compiler understands that the object must be an instance of the stated parameter
+  * Interface must only contain one abstract method (*functional interface*)
+
+
+#### 15.10: Listeners for Observable Objects
+
+*You can add a listener to process a value change in an observable object*
+
+* Instance of `Observable` is called an observable object
+  * contains method `addListener(InvalidationListener listener)`
+
+  ### Chapter 17: Binary I/O
+
+  * Files can be classified as either text or binary - everything that can't be processed by a text editor is binary
+  * Binary I/O does not involve encoding or decoding and thus is more efficient than text I/O
+  * Text I/O is built upon binary I/O to provide a level of abstraction for character encoding and decoding
+
+
+#### 17.4: Binary I/O Classes
+
+![](images/binaryIO.png)
+
+* `InputStream` is the root for binary input classes, `OutputStream` for output classes
+* `FileInputStream/FileOutputStream` is for reading/writing bytes from/to files. All the methods in these classes are inherited from `InputStream` and `OutputStream`
+* *Filter streams* are streams that filter bytes for some purpose like reading integers, doubles, etc
+  * *FilterInputStream* and *FilterOutputStream* are the base classes for filtering data
+* *DataInputStream* reads bytes from the stream (`FileInputStream`) and converts them into appropriate primitive-type values or strings
+* UTF-8 is a coding scheme that allows systems to operate with both ASCII and Unicode
+* Most operating systems use ASCII. Java uses Unicode. The ASCII character set is a subset of the Unicode character set
+* Catch `EOFException` to detect end of file
+
+
+* `BufferedInputStream`/`BufferedOutputStream` can be used to speed up input and output by reducing the number of disk reads and writes
+  * Works by reading/writing the whole block of data into buffer in memory at once
+  * You can wrap a `BufferedInputStream`/`BufferedOutputStream` on any `InputStream`/`OutputStream` with the following constructor: `BufferedInputStream(in: InputStream)`
+    ```java
+    DataOutputStream output = new DataOutputStream(
+      new BufferedOutputStream(new FileOutputStream("temp.dat")));
+    ```
+  * Should only use with files >100mb
+
+
+#### 17.6: Object I/O
+
+*`ObjectInputStream`/`ObjectOutputStream` classes can be used to read/write serializable objects*
+
+* Perform I/O for objects in addition to primitives and strings
+  * Can completely replace DataIOStream equivalents
+* `output.writeObject(new java.util.Date());`
+* `java.util.Date date = (java.util.Date)(input.readObject());`
+* You have to read the data from the file in the same order and format as they were written to the file
+* An object must be *serializable* to be written to an output stream
+* When a serializable object is stored, the class of the object is encoded; this includes the class name and the signature of the class, the values of the object’s instance variables, and the closure of any other objects referenced by the object. The values of the object’s static variables are not stored
+* If serialized object contains fields that aren't serializable, mark them as `transient` to tell the JVM to ignore them when writing to an output stream
+  * `private transient A v3 = new A();`
+* All objects only stored once
+
+
+#### 17.7: Random-Access Files
+
+*Java provides the `RandomAccessFile` class to allow data to be read from and written to at any locations in the file*
+
+* All previous streams were read-only or write-only, or sequential streams. Files open in sequential streams cannot be modified, thus the case for RandomAccessFile
+* Allows files to be opened in `r` and `rw` modes
+* A file pointer marks increments as you read/write data to the file (sequence of bytes). Use `seek(int)` method to move file pointer to a specified location
+
+
 
 
 ### Spring
