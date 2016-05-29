@@ -326,6 +326,154 @@ new SuperClassName/InterfaceName() {
 * A file pointer marks increments as you read/write data to the file (sequence of bytes). Use `seek(int)` method to move file pointer to a specified location
 
 
+### Chapter 18: Recursion
+
+```java
+public static int factorial(int n) {
+  if (n == 0)
+     return 1;
+  else
+    return n * factorial(n - 1);
+}
+```
+
+```java
+public static int fib(int n) {
+  if (n == 0)
+    return 0;
+  else if (n == 1)
+    return 1;
+  else
+    return fib(n - 2) + fib(n - 1);
+}
+```
+
+```java
+public static boolean isPalindrome(String s) {
+  if (s.length() <= 1)
+    return true;
+  else if (s.charAt(0) != s.charAt(s.length() - 1))
+    return false;
+  else
+    return isPalindrome(s.substring(1, s.length() - 1));
+}
+```
+
+```java
+// Recursive selection sort
+public static void sort(double[] list) {
+  sort(list, 0, list.length() - 1);
+}
+
+public static void sort(double[] list, int low, int high) {
+  if (low < high) {
+    // Find the smallest number and its index in list[low..high]
+    int indexOfMin = low;
+    double min = list[low];
+
+    for(int i = low + 1; i <= high; i++) {
+      if (list[i] < min) {
+        min = list[i];
+        indexOfMin = i;
+      }
+    }
+
+    // Swap the smallest in list[low..high] with list[low]
+    list[indexOfMin] = list[low];
+    list[low] = min;
+
+    // Sort the remaining list
+    sort(list, low + 1, high);
+
+  }
+}
+```
+
+```java
+// Recursive binary search (must be in increasing order)
+// Case 1: Key < middle element, search for key in the first half of the array
+// Case 2: Key == middle element, search complete
+// Case 3: Key > middle, search for key in the second half of the array
+public static int binSearch(int[] list, int key) {
+  int low = 0;
+  int high = list.length - 1;
+  return binSearch(list, key, low, high);
+}
+
+public static int binSearch(int[] list, int key, int low, int high) {
+  if (low > high) // List exhausted w/o match
+    return -low - 1;
+
+  int mid = (low + high) / 2;
+  if(key < list[mid])
+    return binSearch(list, key, low, mid - 1);
+  else if (key == list[mid])
+    return mid;
+  else
+    return binSearch(list, key, mid + 1, high);
+}
+```
+
+#### 18.6: Tail Recursion
+
+*Recursive method is said to be tail recursive if there are no pending operations to be performed on return from a recursive call*
+
+* e.g. `isPalindrome` is, while `factorial` isn't as the result of n-1 must be multiplied by n
+* Desirable as when the last recursive call ends, there is no need to store the intermediate calls on the stack. Also, compilers can optimize tail recursion to reduce stack size
+
+
+### Chapter 19: Generics
+
+*Generics enable you to detect errors at compile time rather than at runtime*
+
+* `<T>` represents a *formal generic type*, which can later be replaced by an *actual concrete type* (this is called *generic instantiation*)
+* Generic types must be reference types
+* `public class GenericStack<E>`
+  * Has constructor `public GenericStack()`
+* Multiple parameters: `<E1, E2, E3>`
+* Can define generic interfaces and classes
+
+
+#### 19.4: Generic Methods
+
+* Can define static methods as generic, e.g. `public static <E> void print(E[] list)`
+  * To invoke, `GenericMethodDemo.<Integer>print(integers);` or simply `print(integers);`
+* A generic type can be specified as a subtype of another type, such a generic type is called *bounded*
+  * e.g. `public static <E extends GeometricObject> boolean equalArea( E object1, E object2)`
+
+
+* A generic class or interface used without specifying a concrete type, called a *raw type*, enables backward compatibility with earlier versions of Java
+  * e.g. `GenericStack stack = new GenericStack();` is equivalent to `GenericStack<Object> stack = new GenericStack<Object>();`
+* Raw types are unsafe
+
+
+#### 19.7: Wildcard Generic Types
+
+*You can use unbounded wildcards, bounded wildcards, or lower-bound wildcards to specify a range for a generic type*
+
+* *Unbounded Wildcard*: `?`, is the same as `? extends Object`
+* *Bounded Wildcard*: `? extends T`, represents T or a subtype of T
+* *Lower-bound Wildcard*: `? super T`, represents T or a supertype of T
+
+
+#### 19.8: Erasure and Restrictions on Generics
+
+*The information on generics is used by the compiler but is not available at runtime. This is called type erasure*
+
+* *Type erasure*: The compiler uses the generic type information to compile the code, but erases it afterward
+* Allows for generic code to be backward compatable with legacy code that uses raw types
+* The generics are present at compile time. Once the compiler confirms that a generic type is used safely, it converts the generic type to a raw type
+* If a generic type is bounded, the compiler replaces it with the bounded type
+* A generic class is shared by all its instances regardless of its actual
+concrete type
+  * e.g. Although `ArrayList<String>` and `ArrayList<Integer>` are two types at compile time, only one `ArrayList` class is loaded into the JVM at runtime
+* Because generic types are erased at runtime, there are certain restrictions on how generic types can be used
+  * Cannot Use `new E()`
+    * Because `new E()` is executed at runtime but `E` isn't available at runtime
+  * Cannot Use `new E[]`
+    * Circumvent with warning: `E[] elements = (E[])new Object[capacity];`
+  * A generic type parameter of a class is not allowed in a static context
+  * Exception classes cannot be generic
 
 
 ### Spring
