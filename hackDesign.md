@@ -109,7 +109,7 @@
 ### Misc
 
 * [8 pt grid](http://spec.fm/specifics/8-pt-grid)
-    * Baseline text to develope vertical consistency - best to combine 8pt UI grid with 4pt baseline grid
+    * Baseline text to develop vertical consistency - best to combine 8pt UI grid with 4pt baseline grid
     * *Basic Principle*: Use multiples of 8 to define dimensions, padding, and margin of both block and inline element
     * *Tips*:
         * Use snap to grid
