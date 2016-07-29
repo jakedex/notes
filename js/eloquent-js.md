@@ -132,3 +132,5 @@ get height() {
 	* or use .bind(this)
 
 * `Array.prototype.map()` creates a new array with results of a provided function on every element in this array
+
+* if you forget `var`, variable is added to root scope (window). This is called polluting the global scope. Use 'use strict' to prevent the ability.
