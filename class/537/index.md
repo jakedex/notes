@@ -4,6 +4,7 @@
 - [#2](Lectures/2.md)
 - [#3](Lectures/3.md)
 - [#4](Lectures/4.md)
+- [#5](Lectures/5.md)
 
 #### Readings
 - [#1](Readings/1.md)
@@ -13,5 +14,8 @@
 - [#6](Readings/6.md)
 - [#7](Readings/7.md)
 - [#8](Readings/9.md)
-- [#10](Readings/10.md)
-- [#11](Readings/11.md)
+- [#13](Readings/13.md)
+- [#14](Readings/14.md)
+- [#17](Readings/17.md)
+- [#18](Readings/18.md)
+- [#19](Readings/19.md)
